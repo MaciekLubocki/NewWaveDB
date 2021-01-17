@@ -1,1 +1,1 @@
-https://nefave.herokuapp.com/
+https://newwavedbapi.herokuapp.com/
