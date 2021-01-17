@@ -26,8 +26,10 @@ export const loadConcerts = payload => ({ payload, type: LOAD_CONCERTS });
 /* THUNKS */
 
 export const loadConcertsRequest = () => {
+  console.log('działa')
   return async dispatch => {
 
+    console.log('działa')
     dispatch(startRequest());
     try {
 

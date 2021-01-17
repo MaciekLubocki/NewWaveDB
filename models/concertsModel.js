@@ -24,6 +24,16 @@ const concerts = new mongoose.Schema({
     }
 })
 
+
+concerts.virtual('workshops', {
+    ref: 'Workshops',
+    localField: '_id',
+    foreignField: 'concertId'
+})
+
+concerts.set('toObject', { virtuals: true });
+concerts.set('toJSON', { virtuals: true });
+
 const Concerts = mongoose.model('Concerts', concerts)
 
 module.exports = Concerts;

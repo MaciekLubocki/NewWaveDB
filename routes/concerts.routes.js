@@ -11,20 +11,20 @@ const Workshops = require("./../models/workshopsModel");
 // });
 
 router.route("/concerts").get(async (req, res) => {
-  const workshops = await Workshops.find();
-  const concerts = await Concerts.find().exec((error, docs) => {
-    return docs.map(doc => {
-      const data = workshops.filter(workshop => {
-        return workshop.concertId == doc._id
-      })
-      console.log(data)
-      //doc.workshop = data
-      return doc
-  })
-  });
+  // const workshops = await Workshops.find();
+  // const concerts = await Concerts.find().exec((error, docs) => {
+  //   return docs.map(doc => {
+  //     const data = workshops.filter(workshop => {
+  //       return workshop.concertId == doc._id
+  //     })
+  //     console.log(data)
+  //     //doc.workshop = data
+  //     return doc
+  // })
+  // });
 
 
-  //const concerts = await Concerts.find().populate()
+  const concerts = await Concerts.find() .populate({path: 'workshops'});;
 
   res.json(concerts);
 });
